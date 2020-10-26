@@ -105,9 +105,9 @@ public class Configuration {
 
         config.addDefault(path + "help.eco_command", Arrays.asList(
                 "{prefix}&e&lEconomy Help",
-                "&2&l>> &a/eco give <user> <amount> [currency] &8- &7Give a player an amount of a currency.",
-                "&2&l>> &a/eco take <user> <amount> [currency] &8- &7Take an amount of a currency from a player.",
-                "&2&l>> &a/eco set <user> <amount> [currency] &8- &7Set a players amount of a currency."));
+                "&2&l>> &a/geco give <user> <amount> [currency] &8- &7Give a player an amount of a currency.",
+                "&2&l>> &a/geco take <user> <amount> [currency] &8- &7Take an amount of a currency from a player.",
+                "&2&l>> &a/geco set <user> <amount> [currency] &8- &7Set a players amount of a currency."));
 
         config.addDefault(path + "help.exchange_command", Arrays.asList(
                 "{prefix}&b&lExchange Help",
@@ -116,44 +116,44 @@ public class Configuration {
                 "&2&l>> &a/exchange <currency_to_exchange> <amount> <currency_to_receive> &8- &7Exchange with a pre-set exchange rate."));
 
         config.addDefault(path + "usage.pay_command", "&2&l>> &a/pay <user> <amount> [currency] &8- &7Pay the specified user the specified amount.");
-        config.addDefault(path + "usage.give_command", "&2&l>> &a/eco give <user> <amount> [currency] &8- &7Give a player an amount of a currency.");
-        config.addDefault(path + "usage.take_command", "&2&l>> &a/eco take <user> <amount> [currency] &8- &7Take an amount of a currency from a player.");
-        config.addDefault(path + "usage.set_command", "&2&l>> &a/eco set <user> <amount> [currency] &8- &7Set a players amount of a currency.");
+        config.addDefault(path + "usage.give_command", "&2&l>> &a/geco give <user> <amount> [currency] &8- &7Give a player an amount of a currency.");
+        config.addDefault(path + "usage.take_command", "&2&l>> &a/geco take <user> <amount> [currency] &8- &7Take an amount of a currency from a player.");
+        config.addDefault(path + "usage.set_command", "&2&l>> &a/geco set <user> <amount> [currency] &8- &7Set a players amount of a currency.");
 
         config.addDefault(path + "help.cheque_command", Arrays.asList("{prefix}&e&lCheque Help",
                 "&2&l>> &a/cheque write <amount> [currency] &8- &7Write a cheque with a specified amount and currency.",
                 "&2&l>> &a/cheque redeem &8- &7Redeem the cheque."));
 
         config.addDefault(path + "help.currency_command", Arrays.asList("{prefix}&e&lCurrency Help",
-                "&2&l>> &a/currency create <singular> <plural> &8- &7Create a currency.",
-                "&2&l>> &a/currency delete <plural> &8- &7Delete a currency.",
-                "&2&l>> &a/currency convert <method> &8- &7Convert storage method. WARN: Take backups first and make sure the storage you are switching to is empty!",
-                "&2&l>> &a/currency backend <method> &8- &7Switch backend. This does not convert.",
-                "&2&l>> &a/currency view <plural> &8- &7View information about a currency.",
-                "&2&l>> &a/currency list &8- &7List of currencies.",
-                "&2&l>> &a/currency symbol <plural> <char|remove> &8- &7Select a symbol for a currency or remove it.",
-                "&2&l>> &a/currency color <plural> <color> &8- &7Select a color for a currency.",
-                "&2&l>> &a/currency colorlist &8- &7List of Colors.",
-                "&2&l>> &a/currency decimals <plural> &8- &7Enable decimals for a currency.",
-                "&2&l>> &a/currency payable <plural> &8- &7Set a currency payable or not.",
-                "&2&l>> &a/currency default <plural> &8- &7Set a currency as default.",
-                "&2&l>> &a/currency startbal <plural> <amount> &8- &7Set the starting balance for a currency.",
-                "&2&l>> &a/currency setrate <plural> <amount> &8- &7Sets the currency's exchange rate."));
+                "&2&l>> &a/gcurrency create <singular> <plural> &8- &7Create a currency.",
+                "&2&l>> &a/gcurrency delete <plural> &8- &7Delete a currency.",
+                "&2&l>> &a/gcurrency convert <method> &8- &7Convert storage method. WARN: Take backups first and make sure the storage you are switching to is empty!",
+                "&2&l>> &a/gcurrency backend <method> &8- &7Switch backend. This does not convert.",
+                "&2&l>> &a/gcurrency view <plural> &8- &7View information about a currency.",
+                "&2&l>> &a/gcurrency list &8- &7List of currencies.",
+                "&2&l>> &a/gcurrency symbol <plural> <char|remove> &8- &7Select a symbol for a currency or remove it.",
+                "&2&l>> &a/gcurrency color <plural> <color> &8- &7Select a color for a currency.",
+                "&2&l>> &a/gcurrency colorlist &8- &7List of Colors.",
+                "&2&l>> &a/gcurrency decimals <plural> &8- &7Enable decimals for a currency.",
+                "&2&l>> &a/gcurrency payable <plural> &8- &7Set a currency payable or not.",
+                "&2&l>> &a/gcurrency default <plural> &8- &7Set a currency as default.",
+                "&2&l>> &a/gcurrency startbal <plural> <amount> &8- &7Set the starting balance for a currency.",
+                "&2&l>> &a/gcurrency setrate <plural> <amount> &8- &7Sets the currency's exchange rate."));
 
-        config.addDefault(path + "usage.currency_create", "&2&l>> &a/currency create <singular> <plural> &8- &7Create a currency.");
-        config.addDefault(path + "usage.currency_delete", "&2&l>> &a/currency delete <plural> &8- &7Delete a currency.");
-        config.addDefault(path + "usage.currency_convert", "&2&l>> &a/currency convert <method> &8- &7Convert storage method. WARN: Take backups first and make sure the storage you are switching to is empty!");
-        config.addDefault(path + "usage.currency_backend", "&2&l>> &a/currency backend <method> &8- &7Switch backend. This does not convert.");
-        config.addDefault(path + "usage.currency_view", "&2&l>> &a/currency view <plural> &8- &7View information about a currency.");
-        config.addDefault(path + "usage.currency_list", "&2&l>> &a/currency list &8- &7List of currencies.");
-        config.addDefault(path + "usage.currency_symbol", "&2&l>> &a/currency symbol <plural> <char|remove> &8- &7Select a symbol for a currency or remove it.");
-        config.addDefault(path + "usage.currency_color", "&2&l>> &a/currency color <plural> <color> &8- &7Select a color for a currency.");
-        config.addDefault(path + "usage.currency_colorlist", "&2&l>> &a/currency colorlist &8- &7List of Colors.");
-        config.addDefault(path + "usage.currency_payable", "&2&l>> &a/currency payable <plural> &8- &7Set a currency payable or not.");
-        config.addDefault(path + "usage.currency_default", "&2&l>> &a/currency default <plural> &8- &7Set a currency as default.");
-        config.addDefault(path + "usage.currency_decimals", "&2&l>> &a/currency decimals <plural> &8- &7Enable decimals for a currency.");
-        config.addDefault(path + "usage.currency_startbal", "&2&l>> &a/currency startbal <plural> <amount> &8- &7Set the starting balance for a currency.");
-        config.addDefault(path + "usage.currency_setrate", "&2&l>> &a/currency setrate <plural> <amount> &8- &7Sets the currency's exchange rate.");
+        config.addDefault(path + "usage.currency_create", "&2&l>> &a/gcurrency create <singular> <plural> &8- &7Create a currency.");
+        config.addDefault(path + "usage.currency_delete", "&2&l>> &a/gcurrency delete <plural> &8- &7Delete a currency.");
+        config.addDefault(path + "usage.currency_convert", "&2&l>> &a/gcurrency convert <method> &8- &7Convert storage method. WARN: Take backups first and make sure the storage you are switching to is empty!");
+        config.addDefault(path + "usage.currency_backend", "&2&l>> &a/gcurrency backend <method> &8- &7Switch backend. This does not convert.");
+        config.addDefault(path + "usage.currency_view", "&2&l>> &a/gcurrency view <plural> &8- &7View information about a currency.");
+        config.addDefault(path + "usage.currency_list", "&2&l>> &a/gcurrency list &8- &7List of currencies.");
+        config.addDefault(path + "usage.currency_symbol", "&2&l>> &a/gcurrency symbol <plural> <char|remove> &8- &7Select a symbol for a currency or remove it.");
+        config.addDefault(path + "usage.currency_color", "&2&l>> &a/gcurrency color <plural> <color> &8- &7Select a color for a currency.");
+        config.addDefault(path + "usage.currency_colorlist", "&2&l>> &a/gcurrency colorlist &8- &7List of Colors.");
+        config.addDefault(path + "usage.currency_payable", "&2&l>> &a/gcurrency payable <plural> &8- &7Set a currency payable or not.");
+        config.addDefault(path + "usage.currency_default", "&2&l>> &a/gcurrency default <plural> &8- &7Set a currency as default.");
+        config.addDefault(path + "usage.currency_decimals", "&2&l>> &a/gcurrency decimals <plural> &8- &7Enable decimals for a currency.");
+        config.addDefault(path + "usage.currency_startbal", "&2&l>> &a/gcurrency startbal <plural> <amount> &8- &7Set the starting balance for a currency.");
+        config.addDefault(path + "usage.currency_setrate", "&2&l>> &a/gcurrency setrate <plural> <amount> &8- &7Sets the currency's exchange rate.");
 
         config.options().copyDefaults(true);
         plugin.saveConfig();

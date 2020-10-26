@@ -18,17 +18,15 @@ import java.util.UUID;
 
 public abstract class DataStore {
 
+    private static final ArrayList<DataStore> methods = new ArrayList<>();
     public final GemsEconomy plugin = GemsEconomy.getInstance();
-
-    private String name;
-    private boolean topSupported;
+    private final String name;
+    private final boolean topSupported;
 
     public DataStore(String name, boolean topSupported) {
         this.name = name;
         this.topSupported = topSupported;
     }
-
-    private static ArrayList<DataStore> methods = new ArrayList<>();
 
     public static DataStore getMethod(String name) {
         for (DataStore store : getMethods()) {

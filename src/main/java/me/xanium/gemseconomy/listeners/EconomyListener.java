@@ -69,7 +69,7 @@ public class EconomyListener implements Listener {
 
         plugin.getServer().getScheduler().runTaskLater(plugin, () -> {
             if (plugin.getCurrencyManager().getDefaultCurrency() == null && (player.isOp() || player.hasPermission("gemseconomy.command.currency"))) {
-                player.sendMessage(F.getPrefix() + "§cYou have not made a currency yet. Please do so by \"§e/currency§c\".");
+                player.sendMessage(F.getPrefix() + "§cYou have not made a currency yet. Please do so by \"§e/gcurrency§c\".");
             }
         }, 60);
     }
