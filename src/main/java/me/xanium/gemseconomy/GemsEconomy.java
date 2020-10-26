@@ -18,6 +18,7 @@ import me.xanium.gemseconomy.data.MySQLStorage;
 import me.xanium.gemseconomy.data.SQLiteDataStore;
 import me.xanium.gemseconomy.data.YamlStorage;
 import me.xanium.gemseconomy.file.Configuration;
+import me.xanium.gemseconomy.hook.PlaceholderAPIHook;
 import me.xanium.gemseconomy.listeners.EconomyListener;
 import me.xanium.gemseconomy.logging.EconomyLogger;
 import me.xanium.gemseconomy.nbt.NMSVersion;
@@ -122,6 +123,14 @@ public class GemsEconomy extends JavaPlugin {
         if (isLogging()) {
             getEconomyLogger().save();
         }
+
+
+        // Placeholder hook:
+        if(this.getServer().getPluginManager().getPlugin("PlaceholderAPI") != null){
+            new PlaceholderAPIHook();
+            UtilServer.consoleLog("Successfully hooked into PlaceholderAPI");
+        }
+
 
         doAsync(this::checkForUpdate);
     }

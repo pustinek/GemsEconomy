@@ -7,7 +7,7 @@ website: https://www.spigotmc.org/resources/gemseconomy.19655/
 load: STARTUP
 loadbefore:
   - ItemFrameShops
-softdepend: [Vault]
+softdepend: [Vault, PlaceholderAPI]
 commands:
   gbalance:
     description: Shows your balances

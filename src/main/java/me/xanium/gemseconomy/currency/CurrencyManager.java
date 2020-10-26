@@ -1,8 +1,8 @@
 package me.xanium.gemseconomy.currency;
 
-import com.google.common.collect.Lists;
 import me.xanium.gemseconomy.GemsEconomy;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -14,7 +14,7 @@ public class CurrencyManager {
         this.plugin = plugin;
     }
 
-    private final List<Currency> currencies = Lists.newArrayList();
+    private final List<Currency> currencies = new ArrayList<>();
 
     public boolean currencyExist(String name) {
         for(Currency currency : currencies) {
