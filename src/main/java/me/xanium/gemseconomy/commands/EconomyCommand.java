@@ -12,13 +12,21 @@ import me.xanium.gemseconomy.GemsEconomy;
 import me.xanium.gemseconomy.account.Account;
 import me.xanium.gemseconomy.currency.Currency;
 import me.xanium.gemseconomy.file.F;
+import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
+import org.bukkit.entity.HumanEntity;
 
-public class EconomyCommand implements CommandExecutor {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class EconomyCommand implements CommandExecutor, TabCompleter {
 
     private final GemsEconomy plugin = GemsEconomy.getInstance();
+
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String s124, String[] args) {
@@ -203,5 +211,29 @@ public class EconomyCommand implements CommandExecutor {
                 sender.sendMessage(F.getUnknownCurrency());
             }
         });
+    }
+
+    @Override
+    public List<String> onTabComplete(CommandSender sender, Command command, String alias, String[] args) {
+        List<String> results = new ArrayList<>();
+
+        switch (args.length){
+            case 1:
+                results.add("give");
+                results.add("take");
+                results.add("set");
+                break;
+            case 2:
+                results.addAll(Bukkit.getOnlinePlayers().stream().map(HumanEntity::getName).collect(Collectors.toList()));
+                break;
+            case 3:
+                results.add("<amount>");
+                break;
+            case 4:
+                results.addAll(plugin.getCurrencyManager().getCurrencies().stream().map(Currency::getPlural).collect(Collectors.toList()));
+                break;
+        }
+
+        return results;
     }
 }
