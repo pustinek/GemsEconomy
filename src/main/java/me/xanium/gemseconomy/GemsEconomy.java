@@ -21,12 +21,11 @@ import me.xanium.gemseconomy.file.Configuration;
 import me.xanium.gemseconomy.listeners.EconomyListener;
 import me.xanium.gemseconomy.logging.EconomyLogger;
 import me.xanium.gemseconomy.nbt.NMSVersion;
-import me.xanium.gemseconomy.utils.Metrics;
 import me.xanium.gemseconomy.utils.Updater;
 import me.xanium.gemseconomy.utils.UtilServer;
 import me.xanium.gemseconomy.vault.VaultHandler;
 import org.bukkit.plugin.java.JavaPlugin;
-
+import org.bstats.bukkit.Metrics;
 import java.io.File;
 import java.io.IOException;
 
@@ -41,6 +40,7 @@ public class GemsEconomy extends JavaPlugin {
     private VaultHandler vaultHandler;
     private NMSVersion nmsVersion;
     private Metrics metrics;
+
     private EconomyLogger economyLogger;
     private UpdateForwarder updateForwarder;
 
@@ -89,7 +89,9 @@ public class GemsEconomy extends JavaPlugin {
         currencyManager = new CurrencyManager(this);
         chequeManager = new ChequeManager(this);
         economyLogger = new EconomyLogger(this);
-        metrics = new Metrics(this);
+        //TODO: add correct pluginId
+        metrics = new Metrics(this,-1);
+
         updateForwarder = new UpdateForwarder(this);
 
         initializeDataStore(getConfig().getString("storage"), true);
@@ -97,7 +99,11 @@ public class GemsEconomy extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new EconomyListener(), this);
         getCommand("gbalance").setExecutor(new BalanceCommand());
         getCommand("gbaltop").setExecutor(new BalanceTopCommand());
-        getCommand("geconomy").setExecutor(new EconomyCommand());
+
+        EconomyCommand economyCommand = new EconomyCommand();
+        getCommand("geconomy").setExecutor(economyCommand);
+        getCommand("geconomy").setTabCompleter(economyCommand);
+
         getCommand("gpay").setExecutor(new PayCommand());
         getCommand("gcurrency").setExecutor(new CurrencyCommand());
         getCommand("gcheque").setExecutor(new ChequeCommand());
